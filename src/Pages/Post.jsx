@@ -13,7 +13,8 @@ export default function Post() {
   const userData = useSelector((state) => state.auth.userData);
 
   const isAuthor = post && userData ? post.userId === userData.$id : false;
-
+  console.log(post.$id);
+  console.log(userData);
   useEffect(() => {
     if (slug) {
       appwriteService.getPost(slug).then((post) => {
@@ -24,6 +25,7 @@ export default function Post() {
   }, [slug, navigate]);
 
   const deletePost = () => {
+    console.log(userData.userId);
     appwriteService.deletePost(post.$id).then((status) => {
       if (status) {
         appwriteService.deleteFile(post.featuredImage);

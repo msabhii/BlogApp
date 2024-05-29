@@ -16,7 +16,7 @@ const EditPost = () => {
   }, [slug, navigate]);
   return posts ? (
     <Container>
-      <PostCard post={posts} />
+      <PostCard {...posts} />
     </Container>
   ) : null;
 };
