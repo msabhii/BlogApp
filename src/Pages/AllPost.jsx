@@ -11,12 +11,12 @@ function AllPost() {
       }
     });
   }, []);
-  console.log(posts);
+
   return (
     <div className="w-full py-8">
       <Container>
         <div className="flex flex-wrap">
-          <pre>{JSON.stringify(posts, null, 2)}</pre>
+          {/* <pre>{JSON.stringify(posts, null, 2)}</pre> */}
           {posts.map((post) => (
             <div key={post.$id} className="p-2 w-1/4">
               <PostCard {...post} />
