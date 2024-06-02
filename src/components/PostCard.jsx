@@ -22,7 +22,7 @@ function PostCard({ $id, title, featuredImage }) {
         </div>
         <h2 className="text-xl font-bold">{title}</h2>
         {/* Debugging: Display the featuredImage value */}
-        <pre>{JSON.stringify(featuredImage, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(featuredImage, null, 2)}</pre> */}
       </div>
     </Link>
   );
