@@ -15,7 +15,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">
-                    &copy; Copyright 2023. All Rights Reserved by DevUI.
+                    &copy; Copyright {new Date().getFullYear()}. All Rights Reserved by DevUI.
                   </p>
                 </div>
               </div>
