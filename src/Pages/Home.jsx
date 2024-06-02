@@ -19,7 +19,7 @@ const Home = () => {
         <Container>
           <div className="flex flex-wrap">
             <div className="p-2 w-full">
-              <h1 onClick={() => navigate('/login')} className="text-2xl font-bold hover:text-gray-500 cursor-pointer">
+              <h1 onClick={() => navigate('/login')} className="text-2xl font-bold hover:text-gray-500 cursor-pointer">
                 Login to read posts
               </h1>
             </div>

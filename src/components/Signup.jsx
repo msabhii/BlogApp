@@ -53,7 +53,7 @@ const SignupComponent = () => {
           </Link>
         </p>
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
-        <form onSubmit={handleSubmit(create)} class="mt-4">
+        <form onSubmit={handleSubmit(create)} className="mt-4">
           <div className="space-y-5">
             <Input
               lable="Name"
