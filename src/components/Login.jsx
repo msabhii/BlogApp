@@ -11,9 +11,11 @@ const LoginComponent = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const login = async (data) => {
     setError("");
+    setIsSubmitting(true);
     try {
       const session = await authService.login(data);
       if (session) {
@@ -23,11 +25,13 @@ const LoginComponent = () => {
       }
     } catch (error) {
       setError(error.message);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="flex items-center justify-center w-full">
+    <div className="flex items-center justify-center w-full my-4">
       <div
         className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}
       >
@@ -51,7 +55,7 @@ const LoginComponent = () => {
         </p>
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
         <form onSubmit={handleSubmit(login)} className="mt-8">
-          <div className="space-y-5">
+          <div className="space-y-5 text-start">
             <Input
               label="Email: "
               placeholder="Enter your email"
@@ -73,7 +77,7 @@ const LoginComponent = () => {
                 required: true,
               })}
             />
-            <Button type="submit" className="w-full">
+            <Button disabled={isSubmitting} type="submit" className="disabled:opacity-50 w-full">
               Sign in
             </Button>
           </div>

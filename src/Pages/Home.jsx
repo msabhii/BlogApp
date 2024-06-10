@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Container, PostCard } from "../components";
 import appwirteServices from "../appWrite/config";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     appwirteServices.getPosts().then((post) => {
       if (post) {
@@ -17,7 +19,7 @@ const Home = () => {
         <Container>
           <div className="flex flex-wrap">
             <div className="p-2 w-full">
-              <h1 className="text-2xl font-bold hover:text-gray-500">
+              <h1 onClick={() => navigate('/login')} className="text-2xl font-bold hover:text-gray-500 cursor-pointer">
                 Login to read posts
               </h1>
             </div>
